@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoofTalk Café Faisalabad - Rooftop, Pizza, Coffee & Pods</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF6B35;
+      --secondary: #2EC4B6;
+      --dark: #1A1A1A;
+      --light: #FDFFFC;
+      --accent: #E71D36;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(26, 26, 26, 0.95) !important;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(26, 26, 26, 0.98) !important;
+      padding: 10px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .navbar-brand span {
+      color: var(--primary);
+    }
+    .nav-link {
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #e55a2b;
+      border-color: #e55a2b;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+    }
+    .btn-outline-light {
+      padding: 10px 25px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-light:hover {
+      background-color: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section with Video */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+    .hero-btns .btn {
+      margin: 0 10px 10px;
+    }
+
+    /* Section Common Styles */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      position: relative;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    /* Highlights Section */
+    .highlights {
+      background-color: #f8f9fa;
+    }
+    .highlight-item {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    .highlight-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .highlight-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .highlight-item h4 {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    /* About Section */
+    .about p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .about-img {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .about-img img {
+      transition: transform 0.5s ease;
+    }
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Featured Menu */
+    .menu {
+      background-color: #f8f9fa;
+    }
+    .menu-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .menu-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .menu-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .menu-item:hover .menu-img img {
+      transform: scale(1.1);
+    }
+    .menu-content {
+      padding: 20px;
+    }
+    .menu-content h4 {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .menu-content p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+    .price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    /* Deals Section */
+    .deals .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 400px;
+    }
+    .deals .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .deal-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .deal-content {
+      padding: 20px;
+    }
+    .deal-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+
+    /* Gallery Section */
+    .gallery {
+      background-color: #f8f9fa;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-title {
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4') fixed center center;
+      background-size: cover;
+      color: white;
+    }
+    .testimonial-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 15px;
+    }
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid rgba(255,255,255,0.3);
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .testimonial-author {
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    .contact-details {
+      font-size: 1.1rem;
+    }
+    .map-container {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      height: 400px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 60px 0 30px;
+    }
+    .footer h5 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer h5:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      color: white;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    /* Order Modal */
+    .modal-content {
+      border-radius: 15px;
+      overflow: hidden;
+      border: none;
+    }
+    .order-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .quantity-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quantity-input {
+      width: 60px;
+      text-align: center;
+      height: 40px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      font-size: 1.2rem;
+    }
+    .order-details {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: #e55a2b;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      .gallery-img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><span>Roof</span>Talk Café</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a href="#order" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <video autoplay muted loop>
+      <source src="videos/Restaurant promotion video; Arcadian Cafe..mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Faisalabad's First Rooftop Live Café</h1>
+      <p>Where pizza meets rooftop vibes, coffee fuels creativity, and pods keep you connected.</p>
+      <div class="hero-btns">
+        <a href="#reservation" class="btn btn-primary">Book a Table</a>
+        <a href="#order" class="btn btn-outline-light">Order Now</a>
+        <a href="#pods" class="btn btn-outline-light">Reserve a Pod</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="highlights">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">🌃</div>
+            <h4>Rooftop City Views</h4>
+            <p>Enjoy breathtaking views of Faisalabad from our rooftop</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">🍕</div>
+            <h4>Authentic Pizzas</h4>
+            <p>Wood-fired pizzas with authentic flavors and fresh ingredients</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">🍔🍝</div>
+            <h4>Burgers, Pasta & More</h4>
+            <p>Diverse menu with local and international favorites</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">☕</div>
+            <h4>Premium Coffee</h4>
+            <p>Carefully crafted coffee beverages made from premium beans</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">📡</div>
+            <h4>High-Speed Wi-Fi & Pods</h4>
+            <p>Stay connected with our high-speed internet and private pods</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="highlight-item">
+            <div class="highlight-icon">🎓</div>
+            <h4>Student-Friendly Deals</h4>
+            <p>Special discounts and offers for students</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About RoofTalk Café</h2>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" class="img-fluid" alt="Rooftop Dining">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <p>At RoofTalk Café, we believe food tastes better with a view. From sizzling pizzas to soothing coffees, we've created a space where Faisalabad's students, families, and professionals can eat, relax, and connect.</p>
+          <p>Welcome to Faisalabad's first rooftop café with live-streaming pods. RoofTalk is built for dreamers, doers, and food lovers. Whether you're here for a late-night pizza, a group study session, or a casual family dinner, our rooftop view makes every bite unforgettable.</p>
+          <h4 class="mt-4 mb-3">Why Faisalabad Loves Us:</h4>
+          <ul>
+            <li>Rooftop vibes in the heart of the city 🌆</li>
+            <li>Student deals & late-night discounts 🎓</li>
+            <li>High-speed Wi-Fi & private pods 📡</li>
+            <li>Wide menu with local & international flavors 🍴</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Menu Section -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Menu</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="menu-item">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Malai Boti Melt Pizza">
+            </div>
+            <div class="menu-content">
+              <h4>Malai Boti Melt Pizza</h4>
+              <p class="price">Rs. 1399</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="menu-item">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Smash Tikka Burger">
+            </div>
+            <div class="menu-content">
+              <h4>Smash Tikka Burger</h4>
+              <p class="price">Rs. 599</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="menu-item">
+            <div class="menu-img">
+              <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f" alt="Alfredo Pasta">
+            </div>
+            <div class="menu-content">
+              <h4>Alfredo Pasta</h4>
+              <p class="price">Rs. 799</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="menu-item">
+            <div class="menu-img">
+              <img src="videos/desert_jar.jpg" alt="Lotus Dessert Jar">
+            </div>
+            <div class="menu-content">
+              <h4>Lotus Dessert Jar</h4>
+              <p class="price">Rs. 549</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#full-menu" class="btn btn-primary">See Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section id="deals" class="deals">
+    <div class="container">
+      <div class="section-title">
+        <h2>Special Deals</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <span class="deal-badge">Popular</span>
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" height="200px"  class="card-img-top" alt="Student Slice Combo">
+            <div class="deal-content">
+              <h4>🎓 Student Slice Combo</h4>
+              <p>20" Slice + Fries + Drink</p>
+              <div class="deal-price">Rs.499</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828" height="200px"  class="card-img-top" alt="Friends & Family Deal">
+            <div class="deal-content">
+              <h4>👨‍👩‍👧 Friends & Fam Deal</h4>
+              <p>2 Medium Pizzas + 1.5L Drink</p>
+              <div class="deal-price">Rs.1799</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <span class="deal-badge">New</span>
+            <img src="videos/trio_deal.jpg" height="200px" class="card-img-top" alt="Rooftop Trio">
+            <div class="deal-content">
+              <h4>🍽 Rooftop Trio</h4>
+              <p>14" Pizza + Pasta + Garlic Bread + 1.5L Drink</p>
+              <div class="deal-price">Rs.2199</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#all-deals" class="btn btn-primary">View All Deals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Gallery</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2" alt="Rooftop View" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Rooftop View 🌆</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Pods & Workspaces" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Pods & Workspaces 💻</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Pizza Close-Up" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Food Close-Ups 🍕</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df" alt="Students Enjoying" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Students & Families 🎉</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0" alt="Food Presentation" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Food Presentation</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24" alt="Cafe Ambiance" class="gallery-img">
+            <div class="gallery-overlay">
+              <h5 class="gallery-title">Cafe Ambiance</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="color: white;">What Our Customers Say</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Customer" class="testimonial-img">
+            <p class="testimonial-text">"The best rooftop experience in Faisalabad! The pizza is amazing and the view is breathtaking."</p>
+            <p class="testimonial-author">Ayesha Khan</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="testimonial-img">
+            <p class="testimonial-text">"Perfect place for studying with high-speed Wi-Fi and comfortable pods. The coffee keeps me going!"</p>
+            <p class="testimonial-author">Ali Ahmed</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-item text-center">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="testimonial-img">
+            <p class="testimonial-text">"We had a family dinner here and everyone loved it. The deals are great and the food is delicious."</p>
+            <p class="testimonial-author">Fatima Noor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h4>Address</h4>
+            <p class="contact-details">Rooftalk nextech skills academy , Small D-ground , Faisalabad</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h4>Call / WhatsApp</h4>
+            <p class="contact-details">+92-3XX-XXXXXXX</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="contact-info">
+            <div class="contact-icon">
+              <i class="far fa-clock"></i>
+            </div>
+            <h4>Opening Hours</h4>
+            <p class="contact-details">12:00 PM - 2:00 AM (7 days a week)</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="map-container">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.9820056733124!2d73.1043838746917!3d31.414621852360725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922694281998633%3A0x6adaa3ee3f59811e!2sNextech%20Skills!5e0!3m2!1sen!2s!4v1757056127233!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4">
+            <h4 class="mb-4">Send us a Message</h4>
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>RoofTalk Café</h5>
+          <p>Faisalabad's first rooftop live café where pizza meets rooftop vibes, coffee fuels creativity, and pods keep you connected.</p>
+          <div class="social-links mt-4">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Contact Info</h5>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt me-2"></i> Rooftalk nextech skills academy , Small D-ground , Faisalabad</li>
+            <li><i class="fas fa-phone-alt me-2"></i> +92-3XX-XXXXXXX</li>
+            <li><i class="far fa-clock me-2"></i> 12:00 PM - 2:00 AM</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5>Newsletter</h5>
+          <p>Subscribe to get updates on new deals and offers</p>
+          <form>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Your Email">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 RoofTalk Café | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Order Modal -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalTitle">Place Your Order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-3">
+            <img id="orderItemImg" src="" class="order-img rounded" alt="Food Item">
+          </div>
+          <h4 id="orderItemName" class="text-center mb-3"></h4>
+          <div class="order-details mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span>Unit Price:</span>
+              <span id="unitPrice">Rs. 0</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-3">
+              <span class="me-3">Quantity:</span>
+              <button class="quantity-btn me-2" onclick="updateQuantity(-1)">-</button>
+              <input type="number" id="quantity" class="quantity-input" value="1" min="1" onchange="calculateTotal()">
+              <button class="quantity-btn ms-2" onclick="updateQuantity(1)">+</button>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <strong>Total Price:</strong>
+              <strong id="totalPrice">Rs. 0</strong>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="specialInstructions" class="form-label">Special Instructions (Optional)</label>
+            <textarea class="form-control" id="specialInstructions" rows="2" placeholder="Any specific requests..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" onclick="confirmOrder()">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="orderToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <i class="fas fa-check-circle text-success me-2"></i>
+        <strong class="me-auto">Order Confirmed</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Your order has been placed successfully! You will receive a confirmation shortly.
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Variables to store order details
+    let currentPrice = 0;
+    let currentItem = '';
+    
+    // Initialize the order modal when shown
+    const orderModal = document.getElementById('orderModal');
+    orderModal.addEventListener('show.bs.modal', function (event) {
+      const button = event.relatedTarget;
+      const itemName = button.getAttribute('data-name');
+      const itemPrice = button.getAttribute('data-price');
+      const itemImg = button.getAttribute('data-img');
+      
+      // Set modal values
+      document.getElementById('orderItemName').textContent = itemName;
+      document.getElementById('orderItemImg').src = itemImg;
+      document.getElementById('unitPrice').textContent = `Rs. ${itemPrice}`;
+      document.getElementById('quantity').value = 1;
+      
+      // Store current values
+      currentPrice = parseInt(itemPrice);
+      currentItem = itemName;
+      
+      // Calculate initial total
+      calculateTotal();
+    });
+    
+    // Update quantity
+    function updateQuantity(change) {
+      const quantityInput = document.getElementById('quantity');
+      let quantity = parseInt(quantityInput.value) || 1;
+      quantity += change;
+      
+      if (quantity < 1) quantity = 1;
+      
+      quantityInput.value = quantity;
+      calculateTotal();
+    }
+    
+    // Calculate total price
+    function calculateTotal() {
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+      const total = currentPrice * quantity;
+      document.getElementById('totalPrice').textContent = `Rs. ${total}`;
+    }
+    
+    // Confirm order
+    function confirmOrder() {
+      const quantity = document.getElementById('quantity').value;
+      const instructions = document.getElementById('specialInstructions').value;
+      
+      // Show confirmation toast
+      const toast = new bootstrap.Toast(document.getElementById('orderToast'));
+      toast.show();
+      
+      // In a real application, you would send this data to a server
+      console.log('Order Details:', {
+        item: currentItem,
+        quantity: quantity,
+        total: currentPrice * parseInt(quantity),
+        instructions: instructions
+      });
+      
+      // Close the modal after a short delay
+      setTimeout(() => {
+        const modal = bootstrap.Modal.getInstance(orderModal);
+        modal.hide();
+      }, 2000);
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
